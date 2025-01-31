@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <title>Resultados del Diagnóstico</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 2.5em;
+        }
+        .diagnostic {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            padding: 30px;
+            margin-bottom: 30px;
+        }
+        .diagnostic h3 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        .diagnostic a {
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .diagnostic a:hover {
+            text-decoration: underline;
+        }
+        .diagnostic p {
+            color: #34495e;
+            margin: 15px 0;
+        }
+        .back-button {
+            display: inline-block;
+            background: #3498db;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .back-button:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resultados del Diagnóstico</h1>
+        {% for diagnostic in diagnostics %}
+        <div class="diagnostic">
+            <h3>Síntomas consultados: {{ diagnostic.symptoms }}</h3>
+            <div>{{ diagnostic.diagnosis | safe }}</div>
+        </div>
+        {% endfor %}
+        <div class="button-container">
+            <a href="/" class="back-button">Realizar Nueva Consulta</a>
+        </div>
+    </div>
+</body>
+</html> 

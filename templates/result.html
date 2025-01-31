@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+</head>
+<body>
+    <h1>Resultados de Diagnósticos</h1>
+    <table id="resultsTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Usuario</th>
+                <th>Síntomas</th>
+                <th>Diagnóstico</th>
+                <th>Fecha</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for diagnostic in diagnostics %}
+            <tr>
+                <td>{{ diagnostic.id }}</td>
+                <td>{{ diagnostic.user_id }}</td>
+                <td>{{ diagnostic.symptoms }}</td>
+                <td>{{ diagnostic.diagnosis }}</td>
+                <td>{{ diagnostic.created_at }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $('#resultsTable').DataTable();
+        });
+    </script>
+</body>
+</html>
+
